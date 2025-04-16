@@ -130,7 +130,7 @@ function TaskBoard() {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
               <div className="bg-white p-4 rounded-md shadow-lg w-80">
                 <h3 className="text-lg font-bold mb-2">Add new task to "{status}"</h3>
-                <p className="text-sm mb-4 text-gray-500">Here you can add input tag for adding card components</p>
+                <p className="text-sm mb-4 text-gray-500">Here i can add input tag for adding card components</p>
                 <div className="flex justify-end gap-2">
                   <button
                     onClick={() => setShowModal(null)}
