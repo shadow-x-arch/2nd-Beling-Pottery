@@ -1,5 +1,4 @@
 import setupLocatorUI from "@locator/runtime";
-import './index.css' // ✅ or './App.css' if that's where Tailwind directives are
 
 if (process.env.NODE_ENV === "development") {
   setupLocatorUI();

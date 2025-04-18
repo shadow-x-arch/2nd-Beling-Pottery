@@ -1,15 +1,16 @@
 import { useMemo, useState } from 'react';
 import TaskCard from '@/components/Card/TaskCard.tsx';
+import DrawerDemo from '@/components/Card/Drawer';
 
 const add = 'https://cdn-icons-png.flaticon.com/128/3524/3524384.png';
 const info = 'https://cdn-icons-png.flaticon.com/128/2311/2311524.png';
 
 const statuses = ['to-do', 'on-progress', 'in-review', 'completed'];
 const statusColors: Record<string, string> = {
-  'to-do': 'bg-gray-400',
-  'on-progress': 'bg-yellow-400',
-  'in-review': 'bg-purple-500',
-  'completed': 'bg-green-500',
+  "to-do": "bg-gray-400 dark:bg-gray-600",
+  "on-progress": "bg-yellow-400 dark:bg-yellow-500",
+  "in-review": "bg-purple-500 dark:bg-purple-600",
+  "completed": "bg-green-500 dark:bg-green-600",
 };
 
 const getRandom = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
@@ -92,15 +93,15 @@ function TaskBoard() {
   };
 
   return (
-    <div className="mt-0 bg-[url('/images/white.jpg')] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-5 min-h-screen">
+    <div className="mt-0 bg-[url('/images/white.jpg')] dark:bg-none dark:bg-gray-900 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-5 min-h-screen">
       {statuses.map((status) => (
-        <div key={status} className="bg-gray-100 rounded-lg shadow-md p-4 space-y-4">
+        <div key={status} className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-4 space-y-4">
           <div className="flex justify-between items-center mb-2">
             <div className="flex items-center gap-1">
               <span className={`w-1.5 h-4 rounded-sm ${statusColors[status]}`}></span>
-              <h2 className="flex items-center font-bold text-sm capitalize">
+              <h2 className="flex items-center font-bold text-sm capitalize dark:text-gray-300">
                 {status}
-                <span className="ml-2 px-2 py-0.5 text-xs text-gray-700 bg-gray-300 rounded-sm">
+                <span className="ml-2 px-2 py-0.5 text-xs text-gray-700 bg-gray-300 dark:text-gray-400 dark:bg-gray-700 rounded-sm">
                   {groupedTasks[status].length}
                 </span>
               </h2>
@@ -115,7 +116,7 @@ function TaskBoard() {
                 onClick={() => setShowModal(status)}
               ></span>
               <span
-                className="w-4 h-4 rounded-sm bg-cover bg-center"
+                className="w-4 h-4 rounded-sm bg-cover dark:bg-gray-600 bg-center"
                 style={{ backgroundImage: `url(${info})` }}
               ></span>
             </div>
@@ -125,16 +126,20 @@ function TaskBoard() {
             <TaskCard key={task.id} {...task} />
           ))}
 
-          {/* Modal */}
+       
           {showModal === status && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white p-4 rounded-md shadow-lg w-80">
-                <h3 className="text-lg font-bold mb-2">Add new task to "{status}"</h3>
-                <p className="text-sm mb-4 text-gray-500">Here i can add input tag for adding card components</p>
+              <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-lg w-80">
+                <h3 className="text-lg font-bold mb-2 dark:text-gray-200">
+                  Add new task to "{status}"
+                </h3>
+                <p className="text-sm mb-4 text-gray-500 dark:text-gray-400">
+                  Here you can add input tags for new task components
+                </p>
                 <div className="flex justify-end gap-2">
                   <button
                     onClick={() => setShowModal(null)}
-                    className="px-3 py-1 text-sm rounded bg-gray-200 hover:bg-gray-300"
+                    className="px-3 py-1 text-sm rounded bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
                   >
                     Cancel
                   </button>
@@ -159,6 +164,7 @@ function TaskBoard() {
   ></div>
   Add New
 </span>
+<DrawerDemo />
 
         </div>
         
