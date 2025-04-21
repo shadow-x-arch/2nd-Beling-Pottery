@@ -124,7 +124,7 @@ function Top() {
               <KanbanSquare className="w-5 h-5" />
               <span>Kanban</span>
             </Button>
-            <DatePickerDemo />
+           <DatePickerDemo />
             <Button variant="second">
               <BarChart2 className="w-5 h-5" />
               <span>Gantt</span>
@@ -139,7 +139,7 @@ function Top() {
             </Button>
           </span>
         </div>
-        <div className="flex items-center gap-2 h-10 w-50 mt-4 mb-3 px-1 py-3 border border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400 rounded-md ml-35 ">
+        <div className="flex items-center gap-2 h-10 w-50 mt-4 mb-3 px-1 py-3 border border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400 rounded-md ml-65 ">
           <span className="flex items-center gap-2 cursor-pointer hover:scale-110 transition-transform">
             <img
               src="https://cdn-icons-png.flaticon.com/128/5537/5537401.png"
