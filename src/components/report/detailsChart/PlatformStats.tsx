@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Circle,ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 type PlatformItemProps = {
   icon: React.ReactNode;

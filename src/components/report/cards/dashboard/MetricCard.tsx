@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from '../../utils/cn';
+import { cn } from '@/lib/utils';
 
 type MetricCardProps = {
   title: string;
@@ -15,7 +15,6 @@ const MetricCard: React.FC<MetricCardProps> = ({
   value, 
   secondary, 
   icon,
-  accentColor,
   featured = false
 }) => {
   const cardClasses = cn(

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MoreHorizontal, ArrowUpRight, Clock, CheckCircle, XCircle } from 'lucide-react';
-import { formatCurrency, formatDate } from '../../utils/formatters';
+
 
 const RecentDeals: React.FC = () => {
   const deals = [
@@ -112,7 +112,7 @@ const RecentDeals: React.FC = () => {
                     <span className="text-sm text-slate-600 dark:text-slate-300">{deal.contact}</span>
                   </div>
                 </td>
-                <td className="py-4 text-right text-sm font-medium text-slate-800 dark:text-white">{formatCurrency(deal.value)}</td>
+                <td className="py-4 text-right text-sm font-medium text-slate-800 dark:text-white"></td>
                 <td className="py-4">
                   <div className="flex items-center justify-center gap-1">
                     {getStatusIcon(deal.status)}
@@ -127,7 +127,7 @@ const RecentDeals: React.FC = () => {
                     </span>
                   </div>
                 </td>
-                <td className="py-4 text-right text-sm text-slate-600 dark:text-slate-400">{formatDate(deal.date)}</td>
+                <td className="py-4 text-right text-sm text-slate-600 dark:text-slate-400"></td>
                 <td className="py-4 text-right">
                   <button className="invisible group-hover:visible text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300 transition-colors">
                     <ArrowUpRight className="h-4 w-4" />

@@ -20,7 +20,7 @@ import {
   MoreVertical,
   Search,
 } from 'lucide-react';
-import  Leaderboard from "@/components/sales/pages/dashboard/components/topPerforming";
+import Leaderboard from '@/components/sales/pages/dashboard/components/topPerforming';
 
 interface Transaction {
   id: string;
@@ -35,14 +35,13 @@ interface Transaction {
   date: string;
 }
 
-// Sample transactions data
 const transactions: Transaction[] = [
   {
     id: 't1',
     customer: {
       name: 'John Brown',
       email: 'john@example.com',
-      avatar: 'JB',
+      avatar: 'https://i.pravatar.cc/64?img=3',
     },
     amount: 1800,
     status: 'completed',
@@ -54,7 +53,7 @@ const transactions: Transaction[] = [
     customer: {
       name: 'Kevin Taylor',
       email: 'kevin@example.com',
-      avatar: 'KT',
+      avatar: 'https://i.pravatar.cc/64?img=5',
     },
     amount: 950,
     status: 'completed',
@@ -66,7 +65,7 @@ const transactions: Transaction[] = [
     customer: {
       name: 'Chloe Moore',
       email: 'chloe@example.com',
-      avatar: 'CM',
+      avatar: 'https://i.pravatar.cc/64?img=6',
     },
     amount: 1000,
     status: 'completed',
@@ -78,7 +77,7 @@ const transactions: Transaction[] = [
     customer: {
       name: 'Andrew Roberts',
       email: 'andrew@example.com',
-      avatar: 'AR',
+      avatar: 'https://i.pravatar.cc/64?img=7',
     },
     amount: 2000,
     status: 'failed',
@@ -90,7 +89,7 @@ const transactions: Transaction[] = [
     customer: {
       name: 'Josh Smith',
       email: 'josh@example.com',
-      avatar: 'JS',
+      avatar: 'https://i.pravatar.cc/64?img=8',
     },
     amount: 1200,
     status: 'completed',
@@ -102,133 +101,140 @@ const transactions: Transaction[] = [
 const methodIcons = {
   card: <CreditCard className="h-4 w-4 text-muted-foreground" />,
   transfer: <ArrowRightLeft className="h-4 w-4 text-muted-foreground" />,
-  paypal: <i className="h-4 w-4 text-muted-foreground">P</i>,
+  paypal: <span className="h-4 w-4 text-muted-foreground font-bold">P</span>,
 };
 
 export default function TransactionsTable() {
   return (
-    <>
-    <div className="grid grid-cols-1 md:grid-cols-[70%_30%]">
-    <div className="p-1">
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between pb-2 mt-5">
-        <CardTitle className="text-base font-medium">Recent Transactions</CardTitle>
-        <div className="flex items-center gap-2">
-          <div className="relative w-64 hidden md:block">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <input
-              type="search"
-              placeholder="Search..."
-              className="rounded-md border border-input bg-background pl-8 py-2 text-sm w-full dark:bg-gray-900"
-            />
-          </div>
-          <Button variant="outline" size="sm" className="gap-1">
-            <Filter className="h-4 w-4" />
-            <span className="hidden sm:inline">Filter</span>
-          </Button>
-          <Button variant="outline" size="sm" className="gap-1">
-            <ArrowUpDown className="h-4 w-4" />
-            <span className="hidden sm:inline">Sort By</span>
-          </Button>
-        </div>
-      </CardHeader>
-      <Separator />
-      <CardContent className="p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b text-xs text-muted-foreground font-medium">
-                <th className="py-3 px-4 text-left">Date</th>
-                <th className="py-3 px-4 text-left">Customer Information</th>
-                <th className="py-3 px-4 text-left">Amount</th>
-                <th className="py-3 px-4 text-left">Status</th>
-                <th className="py-3 px-4 text-center">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="text-sm">
-              {transactions.map((transaction) => (
-                <tr key={transaction.id} className="border-b hover:bg-muted/50">
-                  <td className="py-3 px-4 whitespace-nowrap">
-                    {transaction.date}
-                    <div className="text-xs text-muted-foreground">09:00 AM</div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="flex items-center gap-3">
-                      <Avatar className="h-8 w-8">
-                        <AvatarImage src="" alt={transaction.customer.name} />
-                        <AvatarFallback>{transaction.customer.avatar}</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <div className="font-medium">{transaction.customer.name}</div>
-                        <div className="text-xs text-muted-foreground">
-                          {transaction.customer.email}
+    <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-4">
+      {/* Left Side: Transactions Table */}
+      <div className="p-1">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between pb-2 mt-5">
+            <CardTitle className="text-base font-medium">Recent Transactions</CardTitle>
+            <div className="flex items-center gap-2">
+              <div className="relative w-64 hidden md:block">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <input
+                  type="search"
+                  placeholder="Search..."
+                  className="rounded-md border border-input bg-background pl-8 py-2 text-sm w-full dark:bg-gray-900"
+                />
+              </div>
+              <Button variant="outline" size="sm" className="gap-1">
+                <Filter className="h-4 w-4" />
+                <span className="hidden sm:inline">Filter</span>
+              </Button>
+              <Button variant="outline" size="sm" className="gap-1">
+                <ArrowUpDown className="h-4 w-4" />
+                <span className="hidden sm:inline">Sort By</span>
+              </Button>
+            </div>
+          </CardHeader>
+          <Separator />
+          <CardContent className="p-0">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b text-xs text-muted-foreground font-medium">
+                    <th className="py-3 px-4 text-left">Date</th>
+                    <th className="py-3 px-4 text-left">Customer Information</th>
+                    <th className="py-3 px-4 text-left">Amount</th>
+                    <th className="py-3 px-4 text-left">Status</th>
+                    <th className="py-3 px-4 text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  {transactions.map((transaction) => (
+                    <tr key={transaction.id} className="border-b hover:bg-muted/50">
+                      <td className="py-3 px-4 whitespace-nowrap">
+                        {transaction.date}
+                        <div className="text-xs text-muted-foreground">09:00 AM</div>
+                      </td>
+                      <td className="py-3 px-4">
+                        <div className="flex items-center gap-3">
+                          <Avatar className="h-8 w-8">
+                            <AvatarImage
+                              src={
+                                transaction.customer.avatar.startsWith('http')
+                                  ? transaction.customer.avatar
+                                  : ''
+                              }
+                              alt={transaction.customer.name}
+                            />
+                            <AvatarFallback>{transaction.customer.avatar}</AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <div className="font-medium">{transaction.customer.name}</div>
+                            <div className="text-xs text-muted-foreground">
+                              {transaction.customer.email}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <div className="font-medium">${transaction.amount}</div>
-                    <div className="flex items-center text-xs text-muted-foreground">
-                      {methodIcons[transaction.method]}
-                      <span className="ml-1 capitalize">
-                        {transaction.method === 'card'
-                          ? 'Credit Card'
-                          : transaction.method === 'transfer'
-                          ? 'Bank Transfer'
-                          : 'PayPal'}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="py-3 px-4">
-                    <Badge
-                      variant="outline"
-                      className={cn(
-                        'rounded-sm capitalize',
-                        transaction.status === 'completed'
-                          ? 'border-green-500/50 bg-green-500/10 text-green-700'
-                          : transaction.status === 'failed'
-                          ? 'border-red-500/50 bg-red-500/10 text-red-700'
-                          : 'border-yellow-500/50 bg-yellow-500/10 text-yellow-700'
-                      )}
-                    >
-                      {transaction.status}
-                    </Badge>
-                  </td>
-                  <td className="py-3 px-4 text-center">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button
-                          variant="ghost"
-                          className="h-8 w-8 p-0"
-                          aria-label="Open menu"
+                      </td>
+                      <td className="py-3 px-4">
+                        <div className="font-medium">${transaction.amount}</div>
+                        <div className="flex items-center text-xs text-muted-foreground">
+                          {methodIcons[transaction.method]}
+                          <span className="ml-1 capitalize">
+                            {transaction.method === 'card'
+                              ? 'Credit Card'
+                              : transaction.method === 'transfer'
+                              ? 'Bank Transfer'
+                              : 'PayPal'}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="py-3 px-4">
+                        <Badge
+                          variant="outline"
+                          className={cn(
+                            'rounded-sm capitalize',
+                            transaction.status === 'completed'
+                              ? 'border-green-500/50 bg-green-500/10 text-green-700'
+                              : transaction.status === 'failed'
+                              ? 'border-red-500/50 bg-red-500/10 text-red-700'
+                              : 'border-yellow-500/50 bg-yellow-500/10 text-yellow-700'
+                          )}
                         >
-                          <MoreVertical className="h-4 w-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>View details</DropdownMenuItem>
-                        <DropdownMenuItem>Edit transaction</DropdownMenuItem>
-                        <DropdownMenuItem className="text-red-600">
-                          Cancel transaction
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </CardContent>
-    </Card>
-    </div>
-    <div className="bg-muted p-1">
-      <Leaderboard />
+                          {transaction.status}
+                        </Badge>
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              className="h-8 w-8 p-0"
+                              aria-label="Open menu"
+                            >
+                              <MoreVertical className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem>View details</DropdownMenuItem>
+                            <DropdownMenuItem>Edit transaction</DropdownMenuItem>
+                            <DropdownMenuItem className="text-red-600">
+                              Cancel transaction
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Right Side: Leaderboard */}
+      <div className="">
+        <Leaderboard />
       </div>
     </div>
-
-    </>
   );
 }

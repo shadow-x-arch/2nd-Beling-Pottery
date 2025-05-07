@@ -8,7 +8,7 @@ import Application from "@/components/pages/appUser";
 function Report() {
   const [activeView, setActiveView] = useState<"sales" | "reportHeader" | "application">("sales");
 
-  // ⛔ Skip layout when on "application" view
+
   if (activeView === "application") {
     return <Application />;
   }

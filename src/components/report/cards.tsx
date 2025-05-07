@@ -3,7 +3,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronDown } from "lucide-react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { AmountComponent } from "@/components/report/detailsChart/amountchart"
 
 const platforms = [
@@ -13,22 +12,7 @@ const platforms = [
   { name: "Google", amount: "$37,028", percentage: "7%", image: "https://cdn-icons-png.flaticon.com/128/281/281764.png" },
 ];
 
-const barData = [
-  { name: "Dribbble", value: 110 , percentage: "43%" },
-  { name: "Behance", value: 90 },
-  { name: "Google", value: 100 },
-  { name: "Instagram", value: 70 },
-];
 
-const monthlyData = [
-  { month: "", revenue: 11035 },
-  { month: "Oct", revenue: 6901 },
-  { month: "", revenue: 9288 },
-  { month: "Nov", revenue: 9288 },
-  { month: "", revenue: 9288 },
-  { month: "Dec", revenue: 9288 },
-  { month: "", revenue: 9288 },
-];
 
 export function DashboardCards() {
   return (

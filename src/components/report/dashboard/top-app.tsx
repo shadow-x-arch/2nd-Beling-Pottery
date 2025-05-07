@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, MoreHorizontal, Share2, ChevronDown, Star, ArrowUpIcon, ArrowDownIcon, Users } from 'lucide-react';
+import { Download, MoreHorizontal, Share2, ChevronDown, Star, ArrowUpIcon } from 'lucide-react';
 
 const users = [
   { id: '1', name: 'Armin A.', avatar: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150' },
