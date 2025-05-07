@@ -26,9 +26,9 @@ function TaskCard({
   image,
 }: TaskCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow dark:bg-gray-900">
       
-      <div className="flex justify-between items-start mb-2">
+      <div className="flex justify-between items-start mb-2 ">
         <div className="flex items-center gap-1">
           <span
             className={`text-xs px-2 py-0.5 rounded ${
@@ -62,13 +62,13 @@ function TaskCard({
       </p>
 
      
-      <div className="mb-4">
+      <div className="mb-4 ">
         <div className="flex items-center gap-2 mb-1">
           <Progress className="w-4 h-4 text-gray-400 dark:text-gray-600" />
           <span className="text-sm text-gray-600 dark:text-gray-400">
             Progress
           </span>
-          <span className="text-sm text-gray-600 dark:text-gray-400 ml-auto">
+          <span className="text-sm text-gray-600 dark:text-gray-400 ml-auto ">
             {progress}%
           </span>
         </div>

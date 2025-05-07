@@ -73,7 +73,9 @@ export default function Sidebar({ show, toggle }: SidebarProps) {
             <SidebarItem icon={<LayoutDashboard />} label="Dashboard" />
             <SidebarItem icon={<CheckSquare />} label="My To-Do" />
             <SidebarItem icon={<FileText />} label="Request Form" />
+            <a href="/report" className="text-blue-600 hover:underline">
             <SidebarItem icon={<BarChart2 />} label="Reports" />
+           </a>
           </div>
 
           <hr className="border-gray-300 dark:border-gray-700" />

@@ -10,6 +10,14 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+/* index.css or App.css */
+html, body, #root {
+ width: 100%;
+  padding: 0;
+margin-right: 0;
+margin-left: 0;
+ 
+}
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

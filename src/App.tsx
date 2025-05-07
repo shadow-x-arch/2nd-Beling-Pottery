@@ -1,26 +1,27 @@
 import { useState } from "react";
-import Sidebar from "./components/sidebar/sidebar";
-import Top from "./components/top/top";
-import "./App.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import Layout from "@/components/report/Layout";
+import Search from "@/components/report/search";
+import Sales from "@/components/pages/sales";
+import ReportHeader from "@/components/report/top";
+import Application from "@/components/pages/appUser";
 
-function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+function Report() {
+  const [activeView, setActiveView] = useState<"sales" | "reportHeader" | "application">("sales");
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  // ⛔ Skip layout when on "application" view
+  if (activeView === "application") {
+    return <Application />;
+  }
 
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex fixed w-full h-screen overflow-hidden top-0 left-0">
-        <Sidebar show={sidebarOpen} toggle={toggleSidebar} />
-        <div className="flex flex-col flex-1 p-0 bg-gray-900 overflow-auto">
-          <Top />
-        </div>
+    <Layout setActiveView={setActiveView}>
+      <Search />
+      <div className="flex-1 p-0 md:p-2 transition-all duration-300 bg-gray-100 rounded-4xl dark:text-gray-100 dark:bg-gray-900 m-3">
+        {activeView === "sales" && <Sales />}
+        {activeView === "reportHeader" && <ReportHeader />}
       </div>
-    </ThemeProvider>
+    </Layout>
   );
 }
 
-export default App;
+export default Report;

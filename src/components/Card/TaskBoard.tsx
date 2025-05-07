@@ -128,7 +128,7 @@ function TaskBoard() {
 
        
           {showModal === status && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
               <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-lg w-80">
                 <h3 className="text-lg font-bold mb-2 dark:text-gray-200">
                   Add new task to "{status}"

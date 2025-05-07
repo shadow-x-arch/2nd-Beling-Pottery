@@ -54,12 +54,12 @@ export function DrawerDemo() {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="outline">Use Open Drawer</Button>
+        <Button variant="outline">Add New</Button>
       </DrawerTrigger>
       <DrawerContent>
         <div className="flex w-full min-h-[500px]">
           <div
-            className="flex-1 bg-gray-200 dark:bg-gray-900 p-6 flex flex-col justify-center items-center border-r border-gray-300 dark:border-gray-700"
+            className="flex-1 bg-gray-200 dark:bg-gray-700 p-6 flex flex-col justify-center items-center border-r border-gray-300 dark:border-gray-700"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
           >
